@@ -102,7 +102,7 @@ constexpr bit_t<n> bit_v = 1ull << n;
 
 #if defined(_WIN32)
     #define Q2DLL_EXPORT   __declspec( dllexport )
-#elif defined(__linux__)
+#elif defined(__linux__) || defined(__FreeBSD__) || defined(__OpenBSD__)
     #define Q2DLL_EXPORT   __attribute__((visibility("default")))
 #else
     #define Q2DLL_EXPORT
