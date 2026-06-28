@@ -3405,14 +3405,14 @@ private:
 public:
 	// iterate all allocated entities that match the filter,
 	// including ones allocated after this iterator is constructed
-	inline entity_iterable_t<TFilter>() : begin_index(find_matched_index(0, 1)), end_index(game.maxentities) { }
+	inline entity_iterable_t() : begin_index(find_matched_index(0, 1)), end_index(game.maxentities) { }
 	// iterate all allocated entities that match the filter from the specified begin offset
 	// including ones allocated after this iterator is constructed
-	inline entity_iterable_t<TFilter>(uint32_t start) : begin_index(find_matched_index(start, 1)), end_index(game.maxentities) { }
+	inline entity_iterable_t(uint32_t start) : begin_index(find_matched_index(start, 1)), end_index(game.maxentities) { }
 	// iterate all allocated entities that match the filter from the specified begin offset
 	// to the specified INCLUSIVE end offset (or the first entity that matches before it),
 	// including end itself but not ones that may appear after this iterator is done
-	inline entity_iterable_t<TFilter>(uint32_t start, uint32_t end) :
+	inline entity_iterable_t(uint32_t start, uint32_t end) :
 		begin_index(find_matched_index(start, 1)),
 		end_index(find_matched_index(end, -1) + 1)
 	{
