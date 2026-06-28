@@ -262,7 +262,7 @@ constexpr spawnflags_t SPAWNFLAG_EDITOR_MASK = (SPAWNFLAG_NOT_EASY | SPAWNFLAG_N
 							SPAWNFLAG_NOT_COOP | SPAWNFLAG_RESERVED1 | SPAWNFLAG_COOP_ONLY | SPAWNFLAG_RESERVED2);
 
 // use this for global spawnflags
-constexpr spawnflags_t operator "" _spawnflag(unsigned long long int v)
+constexpr spawnflags_t operator ""_spawnflag(unsigned long long int v)
 {
 	if (v & SPAWNFLAG_EDITOR_MASK.value)
 		throw std::invalid_argument("attempting to use reserved spawnflag");
@@ -271,7 +271,7 @@ constexpr spawnflags_t operator "" _spawnflag(unsigned long long int v)
 }
 
 // use this for global spawnflags
-constexpr spawnflags_t operator "" _spawnflag_bit(unsigned long long int v)
+constexpr spawnflags_t operator ""_spawnflag_bit(unsigned long long int v)
 {
 	v = 1ull << v;
 
@@ -435,31 +435,31 @@ public:
 
 // user literals, allowing you to specify times
 // as 128_sec and 128_ms
-constexpr gtime_t operator"" _min(long double s)
+constexpr gtime_t operator""_min(long double s)
 {
 	return gtime_t::from_min(s);
 }
-constexpr gtime_t operator"" _min(unsigned long long int s)
+constexpr gtime_t operator""_min(unsigned long long int s)
 {
 	return gtime_t::from_min(s);
 }
-constexpr gtime_t operator"" _sec(long double s)
+constexpr gtime_t operator""_sec(long double s)
 {
 	return gtime_t::from_sec(s);
 }
-constexpr gtime_t operator"" _sec(unsigned long long int s)
+constexpr gtime_t operator""_sec(unsigned long long int s)
 {
 	return gtime_t::from_sec(s);
 }
-constexpr gtime_t operator"" _ms(long double s)
+constexpr gtime_t operator""_ms(long double s)
 {
 	return gtime_t::from_ms(static_cast<int64_t>(s));
 }
-constexpr gtime_t operator"" _ms(unsigned long long int s)
+constexpr gtime_t operator""_ms(unsigned long long int s)
 {
 	return gtime_t::from_ms(static_cast<int64_t>(s));
 }
-constexpr gtime_t operator"" _hz(unsigned long long int s)
+constexpr gtime_t operator""_hz(unsigned long long int s)
 {
 	return gtime_t::from_ms(static_cast<int64_t>((1.0 / s) * 1000));
 }
